@@ -65,16 +65,6 @@ public class Board{
       }
   }
 
-  public void setBoard(int mat[][])
-  {
-
-      for(i=0;i<mat.length;i++)
-      {
-              arr[mat[i][0]][mat[i][1]]='#';
-      }
-      board_initiate();
-  }
-
   public void display_board(){
 
       for(i=0;i<20;i++)
@@ -85,5 +75,17 @@ public class Board{
           }
           System.out.println();
       }
+  }	
+
+  public void setBoard(int mat[][])
+  {
+
+      for(i=0;i<mat.length;i++)
+      {
+              arr[mat[i][0]][mat[i][1]]='#';
+      }
+      board_initiate();
   }
+
+  
 }

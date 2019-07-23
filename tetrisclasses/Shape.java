@@ -12,33 +12,56 @@ public class Shape{
         public int val,x,y;
 
         public enum shapes{Stick,TShape,Square,LShape,ZShape};
-     public int x(int index)
-     {
-         return co[index][0];
-     }
 
-    public int y(int index) {
-        return co[index][1];
-    }
+        private void setX(int index, int x)
+        {
+          co[index][0] = x;
+        }
 
-     private void setX(int index, int x)
-     {
-         co[index][0] = x;
-     }
-
-    private void setY(int index, int y)
-    {
+        private void setY(int index, int y)
+        {
         co[index][1] = y;
-    }
+      }
 
-    public int setRandom(){
-	shaperotation=0;
+        public int x(int index)
+        {
+         return co[index][0];
+       }
+
+       public int y(int index)
+        {
+          return co[index][1];
+        }
+
+        public int setRandom()
+        {
+	         shaperotation=0;
         Random r=new Random();
         int val=Math.abs(r.nextInt())%5;
         shapes[] values=shapes.values();
         System.out.println(val);
         System.out.println(values[val]);
         return val;
+    }
+
+    public void generate_TShape(int x,int y)
+    {
+       length=1;
+        width=2;
+         shaperotation=1;
+        co=new int[][]{
+            {x,y},{x,y+1},{x,y+2},{x+1,y+1}
+        };
+    }
+
+    public void generate_Square(int x,int y)
+    {
+       length=1;
+        width=1;
+         shaperotation=1;
+        co=new int[][]{
+            {x,y},{x+1,y},{x,y+1},{x+1,y+1}
+        };
     }
 
     public void generate_Stick(int x,int y)
@@ -51,25 +74,7 @@ public class Shape{
 
     }
 
-    public void generate_TShape(int x,int y)
-    {
-	     length=1;
-	      width=2;
-	       shaperotation=1;
-        co=new int[][]{
-            {x,y},{x,y+1},{x,y+2},{x+1,y+1}
-        };
-    }
 
-    public void generate_Square(int x,int y)
-    {
-	     length=1;
-	      width=1;
-	       shaperotation=1;
-        co=new int[][]{
-            {x,y},{x+1,y},{x,y+1},{x+1,y+1}
-        };
-    }
 
     public void generate_ZShape(int x,int y)
     {
@@ -106,7 +111,8 @@ public class Shape{
             generate_ZShape(x,y);
     }
 
-    public void make_Stick(int shaperotation){
+    public void make_Stick(int shaperotation)
+    {
         if(shaperotation==1)
             generate_Stick(x,y);
         else if(shaperotation==2)
@@ -123,18 +129,21 @@ public class Shape{
         };
 
           if(shaperotation==1 || shaperotation==3)
-		{
-			length=3;width=0;
-		}
-	else {length=0;width=3;}
-    }
+		        {
+			           length=3;width=0;
+		        }
+	           else {
+               length=0;width=3;}
+             }
 
-    public void make_TShape(int shaperotation){
-        if(shaperotation==1)
-            generate_TShape(x,y);
-        else if(shaperotation==2)
-            co=new int[][]{
-            {x,y},{x+1,y},{x+2,y},{x+1,y-1}
+             public void make_TShape(int shaperotation)
+             {
+               if(shaperotation==1)
+               generate_TShape(x,y);
+               else if(shaperotation==2)
+                co=new int[][]
+                {
+                  {x,y},{x+1,y},{x+2,y},{x+1,y-1}
         };
         else if(shaperotation==3)
             co=new int[][]{
@@ -149,7 +158,10 @@ public class Shape{
             length=0;
             width=2;
         }
-		else {length=2;width=1;}
+		else
+    {
+      length=2;width=1;
+    }
     }
 
      public void make_LShape(int shaperotation){
@@ -271,7 +283,7 @@ length=0;
         else
           {
             shape_flag=0;
-            System.out.println("Unallowed Move");}
+            System.out.println("Wrong move");}
             for(int i=0;i<4;i++)
            {
                if(screen[co[i][0]][co[i][1]]=='#')
@@ -304,7 +316,7 @@ length=0;
         else
         {
             shape_flag=0;
-            System.out.println("Unallowed Move");}
+            System.out.println("Wrong Move");}
             for(int i=0;i<4;i++)
            {
                if(screen[co[i][0]][co[i][1]]=='#')

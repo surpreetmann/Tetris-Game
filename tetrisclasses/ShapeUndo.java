@@ -52,14 +52,16 @@ public class ShapeUndo implements stack
 
     return null;
     }
+    
+    public int getshaperotation(){
+    return top1.shaperotation;
+    }
 
     public int getshape(){
     return top1.shape;
     }
 
-    public int getshaperotation(){
-    return top1.shaperotation;
-    }
+    
 
     public int getx(){
     return top1.x;
